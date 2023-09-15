@@ -1,0 +1,16 @@
+version: '3.7'
+
+volumes:
+  database_volume:
+
+services:
+  database:
+    image: postgres
+    container_name: database
+    ports:
+      - "5432:5432"
+    restart: always
+    env_file:
+      - db.env
+    volumes:
+      - database_volume:/var/lib/postgresql/data
